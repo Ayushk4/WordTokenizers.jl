@@ -1,5 +1,10 @@
 module WordTokenizers
 
+using HTML_Entities
+using StrTables
+using StringEncodings
+
+
 export poormans_tokenize, punctuation_space_tokenize,
        penn_tokenize, improved_penn_tokenize, nltk_word_tokenize,
        tokenize,
