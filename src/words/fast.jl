@@ -225,4 +225,3 @@ function number(ts, sep = (':', ',', '\'', '.'))
     ts.idx = i
     return true
 end
-
