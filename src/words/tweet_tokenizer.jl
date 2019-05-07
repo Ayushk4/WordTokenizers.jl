@@ -328,6 +328,44 @@ function flushaboutindex!(ts::TokenBuffer, uptoidx)
     return true
 end
 
+wordcharacter(ch) = (isascii(ch) && (isdigit(ch) || islowercase(ch) ||
+                                        isuppercase(ch) || ch == '_'))
+
+# Test the edge case
+# Test the negative lookbehinds and negative lookaheads
+# Test the word boundary
+# Test the * (matching multiple times)
+
+function url1(ts)
+    # Test boundary cases left and right
+    (ts.idx + 3 > length || (ts.idx - 1 > 0 && ts[ts.idx - 1] == '@') ) &&
+        return false
+
+    i = ts.idx
+    while i <= length(ts.input) &&
+              ( isascii(ts[i]) && (isdigit(ts[i]) || islowercase(ts[i])))
+        i += 1
+    end
+
+    i == ts.idx && return false
+
+    while i <= length(ts.input) && !wordcharacter(ts[i]) && ts[i + 1] != '@' && ts[i + 1] != '\/'
+
+        # Handle edge cases here i.e. illegal array element access
+
+    end
+
+
+
+end
+
+
+
+    # lookbehind check for out of bounds
+
+    # lookahead check for out of bounds
+
+
 const forehead = ['>', '<']
 const eyes = [':' ';' '=' '8']
 const nose = ['-','o','*','\'']
