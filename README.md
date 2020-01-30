@@ -7,6 +7,8 @@
 
 Some basic tokenizers for Natural Language Processing:
 
+**Installation:** ```julia pkg> add WordTokenizers ```
+
 The normal way to used this package is to call
 `tokenize(str)` to split up a string into words;
 or `split_sentences(str)` to split up a string into sentences.
